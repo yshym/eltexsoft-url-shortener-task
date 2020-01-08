@@ -4,7 +4,7 @@ from .models import ShortURL
 from .utils import client_ip
 
 
-class ShortURLCreateSerializer(serializers.ModelSerializer):
+class ShortURLSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShortURL
         fields = ('redirect_url', 'short_id',)
