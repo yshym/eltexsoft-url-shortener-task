@@ -11,4 +11,5 @@ urlpatterns = [
     path('login/', views.obtain_auth_token, name='login'),
     path('admin/', admin.site.urls),
     path('docs/', schema_view),
+    path('', include('shortener.urls')),
 ]
