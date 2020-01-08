@@ -22,7 +22,6 @@ class IsCreator(BasePermission):
         return client_ip(request) == view.get_object().creator_ip
 
 
-
 class ShortURLCreateAPIView(CreateAPIView):
     serializer_class = ShortURLSerializer
 
