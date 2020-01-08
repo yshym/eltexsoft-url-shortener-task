@@ -1,1 +1,1 @@
-# EltexSoft url sortener task
+# EltexSoft url shortener task
