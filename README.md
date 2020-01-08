@@ -1,6 +1,6 @@
 # EltexSoft url shortener task
 
-## To run the project:
+### To run the project:
 - Enter `/django` directory
 - Install poetry dependencies `poetry install`
 - Activate virtual environment `poetry shell`
