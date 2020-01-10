@@ -4,7 +4,7 @@ from .models import ShortURL
 
 
 @admin.register(ShortURL)
-class RoomAdmin(admin.ModelAdmin):
+class ShortURLAdmin(admin.ModelAdmin):
     list_display = ('short_id', 'redirect_url')
     readonly_fields = ('short_id', 'creator_ip', 'transitions_number')
     list_filter = ('redirect_url',)
