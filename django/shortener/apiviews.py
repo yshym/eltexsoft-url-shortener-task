@@ -4,7 +4,6 @@ from rest_framework.generics import (
 )
 from rest_framework.views import APIView
 from rest_framework.mixins import DestroyModelMixin
-from rest_framework.permissions import BasePermission
 from rest_framework.response import Response
 
 from .models import ShortURL
@@ -13,13 +12,7 @@ from .serializers import (
     ShortURLStatsRetrieveSerializer,
 )
 from .utils import client_ip
-
-
-class IsCreator(BasePermission):
-    message = 'Only creator of the url is able to view stats and delete url.'
-
-    def has_permission(self, request, view):
-        return client_ip(request) == view.get_object().creator_ip
+from .permissions import IsCreator
 
 
 class ShortURLCreateAPIView(CreateAPIView):
