@@ -1,9 +1,8 @@
 from rest_framework.generics import (
     CreateAPIView,
     RetrieveAPIView,
+    DestroyAPIView,
 )
-from rest_framework.views import APIView
-from rest_framework.mixins import DestroyModelMixin
 from rest_framework.response import Response
 
 from .models import ShortURL
@@ -20,25 +19,13 @@ class ShortURLCreateAPIView(CreateAPIView):
 
 
 class ShortURLStatsRetrieveAPIView(RetrieveAPIView):
-    model = ShortURL
+    queryset = ShortURL.objects.all()
     serializer_class = ShortURLStatsRetrieveSerializer
     permission_classes = [IsCreator]
-
-    def get_object(self):
-        obj = self.model.objects.get(short_id=self.kwargs.get('short_id'))
-        return obj
+    lookup_field = 'short_id'
 
 
-class ShortURLDestroyAPIView(APIView):
-    model = ShortURL
+class ShortURLDestroyAPIView(DestroyAPIView):
+    queryset = ShortURL.objects.all()
     permission_classes = [IsCreator]
-
-    def get_object(self):
-        obj = self.model.objects.get(short_id=self.kwargs.get('short_id'))
-        return obj
-
-    def delete(self, *args, **kwargs):
-        short_url = self.get_object()
-        short_id = short_url.short_id
-        short_url.delete()
-        return Response({'detail': f'ShortUrl {short_id} was deleted'})
+    lookup_field = 'short_id'
