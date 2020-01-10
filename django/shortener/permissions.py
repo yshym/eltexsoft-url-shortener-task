@@ -1,5 +1,7 @@
 from rest_framework.permissions import BasePermission
 
+from .utils import client_ip
+
 
 class IsCreator(BasePermission):
     message = 'Only creator of the url is able to view stats and delete url.'
