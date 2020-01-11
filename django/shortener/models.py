@@ -12,3 +12,7 @@ class ShortURL(models.Model):
 
     def __str__(self):
         return self.short_id
+
+    def save(self, *args, **kwargs):
+        self.short_id = self.uuid.hex[:6]
+        super().save(*args, **kwargs)
