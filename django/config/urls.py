@@ -19,7 +19,6 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('login/', views.obtain_auth_token, name='login'),
     path('admin/', admin.site.urls),
-    path('docs/', include_docs_urls(title="URL Shortener API")),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('', include('shortener.urls')),
 ]
