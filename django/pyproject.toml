@@ -15,7 +15,7 @@ django-extensions = "*"
 pillow = "*"
 gunicorn = "*"
 djangorestframework = "^3.10"
-django-rest-swagger = "^2.2"
+drf-yasg = "^1.17.1"
 
 [tool.poetry.dev-dependencies]
 
