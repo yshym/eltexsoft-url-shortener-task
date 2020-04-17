@@ -10,6 +10,6 @@ schema_view = get_swagger_view(title='URL shortener API')
 urlpatterns = [
     path('login/', views.obtain_auth_token, name='login'),
     path('admin/', admin.site.urls),
-    path('docs/', schema_view),
+    path('docs/', include_docs_urls(title="URL Shortener API")),
     path('', include('shortener.urls')),
 ]
