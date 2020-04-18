@@ -16,6 +16,8 @@ pillow = "*"
 gunicorn = "*"
 djangorestframework = "^3.10"
 drf-yasg = "^1.17.1"
+djangorestframework-jwt = "^1.11.0"
+django-cors-headers = "^3.2.1"
 
 [tool.poetry.dev-dependencies]
 
